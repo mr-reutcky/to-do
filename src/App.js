@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useReducer, useEffect } from 'react';
+import { reducer, initialState } from './Reducer';
+import TodoForm from './components/TodoForm';
+import TodoItem from './components/TodoItem';
 
 function App() {
+  const [tasks, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>My To-Do List</h1>
+      <TodoForm dispatch={dispatch} />
+      {tasks.map(task => (
+        <TodoItem key={task.id} task={task} dispatch={dispatch} />
+      ))}
     </div>
   );
 }
