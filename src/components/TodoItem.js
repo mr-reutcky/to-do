@@ -16,6 +16,8 @@ function TodoItem({ task, dispatch }) {
         <>
           <input
             type="text"
+            maxLength="35"
+            placeholder="Update task"
             value={newText}
             onChange={e => setNewText(e.target.value)}
           />

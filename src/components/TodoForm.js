@@ -22,6 +22,7 @@ function TodoForm({ dispatch }) {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
+        maxLength="35"
         value={text}
         onChange={e => setText(e.target.value)}
         placeholder="New task..."

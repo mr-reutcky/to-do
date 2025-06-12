@@ -95,13 +95,14 @@ button:hover {
 }
 
 .todo-item em {
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: #aab8d3; 
   margin-left: 0.5rem;
 }
 
 /* Icon Buttons */
 .todo-item button {
+  min-width: 20px;
   margin-left: 0.6rem;
   padding: 0.25rem;
   font-size: 1.2rem;
