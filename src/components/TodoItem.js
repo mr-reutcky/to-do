@@ -6,7 +6,7 @@ function TodoItem({ task, dispatch }) {
   const [newText, setNewText] = useState(task.text);
 
   function handleUpdate() {
-    dispatch({ Type: 'UPDATE', payload: { id: task.id, text: newText } });
+    dispatch({ type: 'UPDATE', payload: { id: task.id, text: newText } });
     setIsEditing(false);
   }
 
